@@ -23,9 +23,9 @@ stage('Build')
 	{
         try {
             sh "mvn test" 
-	    } catch(err) {
+	    } catch(error) {
         step([$class: 'JUnitResultArchiver', testResults: '**/target/surefire-reports/TEST-*.xml'])
-        throw err
+        throw error
 	    {
             echo "The Maven can not perform Junit ${error}"
             }
