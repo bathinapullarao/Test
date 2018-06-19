@@ -1,3 +1,4 @@
+
 def CONTAINER_NAME="jenkins-pipeline"
 def CONTAINER_TAG="latest"
 def DOCKER_HUB_USER="bathinapullarao"
@@ -26,7 +27,8 @@ stage('Build')
 	    } 
 	catch(error) 
 		{
-                throw(error)
+		step([$class:'JUnitResultArchiver', $testResults:'**/target/surefire-reports/TEST-*.xml'])
+			throw(error)
 	    		{
             echo "The Maven can not perform Junit ${error}"
 			}
