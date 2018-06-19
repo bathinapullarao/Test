@@ -204,4 +204,5 @@ def dipProd(containerName, tag, dockerHubUser, httpPort){
     sh "docker run -it --rm -p $httpPort:$httpPort --name $containerName $dockerHubUser/$containerName:$tag"
     echo "Application started on port: ${httpPort} (http)"
 }
+junit '**target/test-report/*.xml'
 
