@@ -30,6 +30,7 @@ stage('Build')
             echo "The Maven can not perform Junit ${error}"
             }
         }
+	}
   stage('Sonar')
 	{
         try {
