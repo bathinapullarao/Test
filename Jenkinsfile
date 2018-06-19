@@ -58,13 +58,7 @@ stage('Build')
     stage('Run App'){
         runApp(CONTAINER_NAME, CONTAINER_TAG, DOCKER_HUB_USER, HTTP_PORT)
     }
-	publishHTML([allowMissing: true,
-    alwaysLinkToLastBuild: true,
-    keepAll: true,
-    reportDir: '/var/lib/jenkins/workspace/bnym/build/reports/tests/test',
-    reportFiles: 'index.html',
-    reportName: 'Junit Reports',
-    reportTitles: 'Junit Reports'])
+	
 
     
     stage('approvalofQA'){
